@@ -1,6 +1,10 @@
 import React from 'react'
 import BuildControl from './BuildControl/BuildControl.component'
+
 import './BuildControls.styles.css'
+
+import { StyledButton } from '../CustomButton/Custom.Button'
+
 const controls = [
     {label:'Salad', type: 'salad' },
     {label:'Bacon', type: 'bacon' },
@@ -21,6 +25,10 @@ const buildControls = (props) => (
             disabled={props.disabled[ctrl.type]}
             />
         ))}
+        <StyledButton 
+        disabled={!props.purchasable}
+        onClick={props.ordered}
+        > Order Now </StyledButton>
 
     </div>
 )
