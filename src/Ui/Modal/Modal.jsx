@@ -1,7 +1,12 @@
 import React from 'react'
 import './Modal.css'
 
+import Backdrop from '../Backdrop/Backdrop'
+
 const modal = (props) => (
+
+<>
+   <Backdrop show={props.show} />
     <div className='Modal'
         style={{
             transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
@@ -10,6 +15,8 @@ const modal = (props) => (
     >
         {props.children}
     </div>
+
+ </>
 )
 
 export default modal
