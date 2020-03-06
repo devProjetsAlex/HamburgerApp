@@ -3,7 +3,7 @@ import BuildControl from './BuildControl/BuildControl.component'
 
 import './BuildControls.styles.css'
 
-import { StyledButton } from '../CustomButton/Custom.Button'
+import Button from '../CustomButton/Custom.Button'
 
 const controls = [
     {label:'Salad', type: 'salad' },
@@ -15,7 +15,7 @@ const controls = [
 
 const buildControls = (props) => (
     <div className='BuildControls'>
-        <p>Current Price: {props.price}</p>
+        <p>Current Price: {props.price.toFixed(2)}</p>
         {controls.map(ctrl =>(
             <BuildControl 
             key={ctrl.label} 
@@ -25,10 +25,10 @@ const buildControls = (props) => (
             disabled={props.disabled[ctrl.type]}
             />
         ))}
-        <StyledButton 
+        <Button       
         disabled={!props.purchasable}
         onClick={props.ordered}
-        > Order Now </StyledButton>
+        > Order Now </Button>
 
     </div>
 )
